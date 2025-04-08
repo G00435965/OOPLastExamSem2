@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class TestCustomer {
+public class UnitCustomerTest {
     Customer myCust;
 
     @BeforeEach
@@ -41,5 +41,15 @@ public class TestCustomer {
         assertThrows(IllegalAccessException.class, () -> {new Customer("Cold", "Palmer", "abcdefghij", "LondonVille");});
         assertDoesNotThrow(IllegalAccessException.class, () -> {new Customer("", "Palmer", "abcdefghij", "LondonVille");});
     }
+
+    @Test
+    void testShortFirst()
+    {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Customer("Cole", "Pammer", "abcdefghij", "LondonVille");});
+
+    }
+
+    Exception ex = assertThrows assertEquals("Invaliddd lastName length", ex.getMessage());
 
 }
