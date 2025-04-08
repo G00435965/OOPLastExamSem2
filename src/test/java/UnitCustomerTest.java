@@ -66,7 +66,7 @@ public class UnitCustomerTest {
     void testShortThird()
     {
         assertThrows(IllegalArgumentException.class, () -> {
-            new Customer("Cole", "Palmer", "", "London");});
+            new Customer("Cole", "Palmer", "abcdefghij", "London");});
 
     }
 
