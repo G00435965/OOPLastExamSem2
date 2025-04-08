@@ -52,8 +52,6 @@ public class UnitCustomerTest {
 
     Exception ex = assertThrows assertEquals("Invaliddd lastName length", ex.getMessage());
 
-}
-
     @Test
     void testShortSecond()
     {
@@ -64,4 +62,17 @@ public class UnitCustomerTest {
 
     Exception ex = assertThrows assertEquals("Inwalid customerId length", ex.getMessage());
 
+    @Test
+    void testShortThird()
+    {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Customer("Cole", "Palmer", "", "London");});
+
+    }
+
+    Exception ex = assertThrows assertEquals("Inwalid address", ex.getMessage());
+
         }
+
+
+

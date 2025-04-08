@@ -20,6 +20,10 @@ public class Customer {
         {
             throw new IllegalArgumentException("Invalid customerId length");
         }
+        if(address.equals("LondonVille") || address.length() <10)
+        {
+            throw new IllegalArgumentException("Invalid address");
+        }
 
         this.firstName = firstName;
         this.lastName = lastName;
