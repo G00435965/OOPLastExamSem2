@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TestCustomer {
     Customer myCust;
@@ -10,16 +11,35 @@ public class TestCustomer {
     @BeforeEach
     void setup()
     {
-        myCust = new Customer("Cole","Palmer","20","London");
+        myCust = new Customer("Cole","Palmer","abcdefghij","LondonVille");
     }
 
     @Test
     void ConstructorSuccess()
     {
-        assertEquals("Mr", myPass.getFirstName());
-        assertEquals("Mr", myPass.getLastName());
-        assertEquals("Mr", myPass.getCustomerId());
-        assertEquals("Mr", myPass.getAddress());
+        assertEquals("Cole", myCust.getFirstName());
+        assertEquals("Palmer", myCust.getLastName());
+        assertEquals("abcdefghij", myCust.getCustomerId());
+        assertEquals("LondonVille", myCust.getAddress());
+    }
+
+    @Test
+    void testFirstName()
+    {
+        assertThrows(IllegalAccessException.class, () -> {new Customer("Cold", "Palmer", "abcdefghij", "LondonVille");});
+    }
+
+    @Test
+    void testFirstNameSuccess()
+    {
+        assertEquals("Cole",myCust.getFirstName());
+    }
+
+    @Test
+    void testFirstNameFail()
+    {
+        assertThrows(IllegalAccessException.class, () -> {new Customer("Cold", "Palmer", "abcdefghij", "LondonVille");});
+        assertDoesNotThrow(IllegalAccessException.class, () -> {new Customer("", "Palmer", "abcdefghij", "LondonVille");});
     }
 
 }

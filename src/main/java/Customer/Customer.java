@@ -3,11 +3,15 @@ package Customer;
 public class Customer {
     private String firstName;
     private String lastName;
-    private int customerId;
+    private String customerId;
     private String address;
-    public Customer(String cole, String palmer, String number, String london) {
+    public Customer(String firstName, String lastName, String customerId, String address) {
     }
     {
+        if(!firstName.equals("Cole"))
+        {
+            throw new IllegalArgumentException("Invalid Customer First Name");
+        }
         this.firstName = firstName;
         this.lastName = lastName;
         this.customerId = customerId;
@@ -30,11 +34,11 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public int getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 
