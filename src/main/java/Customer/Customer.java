@@ -12,6 +12,10 @@ public class Customer {
         {
             throw new IllegalArgumentException("Invalid Customer First Name");
         }
+        if(lastName == null || lastName.length() <3)
+        {
+            throw new IllegalArgumentException("Invalid lastName length");
+        }
         this.firstName = firstName;
         this.lastName = lastName;
         this.customerId = customerId;
